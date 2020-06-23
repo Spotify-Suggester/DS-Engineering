@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request, render_template
 import pickle
 import json
+import viz
 
 app = Flask(__name__)
 
@@ -75,10 +76,11 @@ def main():
 
 @app.route("/return", methods=['POST'])
 def JSON_Object():
-    return jsonify({
+    content = jsonify({
         "object": dict(request.form)
     })
-
+    print(content.is_json)
+    return content
 
 if __name__ == '__main__':
     app.run(host= '0.0.0.0',debug=True)
