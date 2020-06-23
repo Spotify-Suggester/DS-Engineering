@@ -1,1 +1,1 @@
-web: gunicorn app: flask_spotify
+web: gunicorn "flask_spotify:app"
