@@ -107,8 +107,18 @@ def viz_data(df):
     return features
 
 
+def prediction(df):
+    important_features = ["duration_ms", "key", "mode", "time_signature", "acousticness", "danceability",
+                          "energy", "instrumentalness", "liveness", "loudness", "speechiness",
+                          "valence", "tempo"]
+    features = {}
+
+    for i in important_features:
+        features[i] = (aggregate(df, i))
+
+    return features
 
 
 if __name__ == "__main__":
 
-    print(viz_data(test))
+    print(prediction(test))
