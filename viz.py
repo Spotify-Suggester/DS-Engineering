@@ -3,7 +3,8 @@
 
 import flask_spotify
 import math
-from flask import jsonify
+from flask import jsonify, request
+import json
 
 '''
 Script to compile data from user input playlist and compare
@@ -88,7 +89,7 @@ def round_up(n, decimals=0):
 # function that returns averages of important features
 def aggregate(df, key):
     key1 = key
-    features = df.get("audio_features")
+    features = req
     keys = [feature[key1] for feature in features]
     average = abs(sum(keys)) / len(keys)
     return round_up(average, 4)
@@ -108,9 +109,9 @@ def viz_data(df):
 
 
 def prediction(df):
-    important_features = ["duration_ms", "key", "mode", "time_signature", "acousticness", "danceability",
-                          "energy", "instrumentalness", "liveness", "loudness", "speechiness",
-                          "valence", "tempo"]
+    important_features = ["acousticness",  "popularity", "danceability", "duration_ms", "energy",
+                          "instrumentalness", "key", "liveness", "loudness", "mode",
+                          "speechiness", "tempo", "valence"]
     features = {}
 
     for i in important_features:

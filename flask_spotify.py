@@ -70,17 +70,13 @@ JSON =  {
     ]
   }
 
-@app.route("/")
-def main():
-  return render_template("main.html")
 
-@app.route("/return", methods=['POST'])
-def JSON_Object():
-    content = jsonify({
-        "object": dict(request.form)
-    })
-    print(content.is_json)
-    return content
+@app.route("/", methods=['GET', 'POST'])
+def main():
+    #  return render_template("main.html")
+    req = request.json.get("audio_features")
+    viz.prediction(req)
+    return jsonify(req)
 
 if __name__ == '__main__':
     app.run(host= '0.0.0.0',debug=True)
