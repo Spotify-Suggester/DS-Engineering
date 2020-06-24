@@ -6,13 +6,9 @@ app = Flask(__name__)
 
 @app.route("/", methods=['GET','POST'])
 def main():
-  return render_template("main.html")
-
-@app.route("/return", methods=['GET','POST'])
-def JSON_Object():
-    return jsonify({
-        "object": dict(request.form)
-    })
+#  return render_template("main.html")
+    req = request.json.get("audio_features")
+    return jsonify(req)
 
 
 if __name__ == '__main__':
