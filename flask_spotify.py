@@ -8,7 +8,7 @@ app = Flask(__name__)
 def main():
   return render_template("main.html")
 
-@app.route("/return", methods=['POST'])
+@app.route("/return", methods=['GET','POST'])
 def JSON_Object():
     return jsonify({
         "object": dict(request.form)
