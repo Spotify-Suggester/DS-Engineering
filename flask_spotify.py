@@ -69,7 +69,7 @@ JSON =  {
     ]
   }
 
-@app.route("/")
+@app.route("/", methods=['POST'])
 def main():
   return render_template("main.html")
 
