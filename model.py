@@ -26,7 +26,7 @@ def clean_data_split(df, use_test_split=False):
   dff = df.copy()
   # removed artists, and id from the features
   features = [
-      "acousticness",  "popularity", "danceability", "duration_ms", "energy",
+      "acousticness", "popularity", "danceability", "duration_ms", "energy",
       "instrumentalness", "key", "liveness", "loudness", "mode",
       "speechiness", "tempo", "valence"
   ]
@@ -87,16 +87,23 @@ def getPred(playList, neigbor, result_id_dict,  cleanfunc, encoder_model, num_so
   return suggested_songs
 
 
-infile = open("/content/neighbor.pkl", "rb")
+infile = open("neighbor_model.pkl", "rb")
 neighbor = pickle.load(infile)
 infile.close()
 
-infile = open("/content/getIdDict.pkl", "rb")
+infile = open("getIdDict.pkl", "rb")
 result_id_dict = pickle.load(infile)
 infile.close()
 
 
-encoded_full = load_model('/content/content/encoded_complete')
+encoded_full = load_model('encoded_complete', compile=False)
 
 suggested_songs = getPred(
     first_five, neighbor, result_id_dict, clean_data_split, encoded_full)
+
+
+if __name__ == "__main__":
+    suggested_songs = getPred(
+        first_five, neighbor, result_id_dict, clean_data_split, encoded_full)
+
+    print(suggested_songs)
