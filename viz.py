@@ -89,7 +89,7 @@ def round_up(n, decimals=0):
 # function that returns averages of important features
 def aggregate(df, key):
     key1 = key
-    features = req
+    features = test["audio_features"]
     keys = [feature[key1] for feature in features]
     average = abs(sum(keys)) / len(keys)
     return round_up(average, 4)
@@ -109,7 +109,7 @@ def viz_data(df):
 
 
 def prediction(df):
-    important_features = ["acousticness",  "popularity", "danceability", "duration_ms", "energy",
+    important_features = ["acousticness", "danceability", "duration_ms", "energy",
                           "instrumentalness", "key", "liveness", "loudness", "mode",
                           "speechiness", "tempo", "valence"]
     features = {}

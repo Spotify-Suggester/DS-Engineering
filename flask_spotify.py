@@ -2,6 +2,9 @@ from flask import Flask, jsonify, request, render_template
 import pickle
 import json
 import viz
+import requests
+from model import neighbor, result_id_dict, clean_data_split, encoded_full
+
 
 app = Flask(__name__)
 
@@ -75,8 +78,8 @@ JSON =  {
 def main():
     #  return render_template("main.html")
     req = request.json.get("audio_features")
-    viz.prediction(req)
     return jsonify(req)
 
+
 if __name__ == '__main__':
-    app.run(host= '0.0.0.0',debug=True)
+    app.run(host='0.0.0.0', debug=True)

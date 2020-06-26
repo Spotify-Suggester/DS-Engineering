@@ -9,6 +9,10 @@ verify_ssl = true
 flask = "*"
 pickle-mixin = "*"
 sklearn = "*"
+requests = "*"
+tensorflow = "*"
+tensorflow-keras-models = "*"
+pandas = "*"
 
 [requires]
 python_version = "3.7"
