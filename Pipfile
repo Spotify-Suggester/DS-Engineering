@@ -8,11 +8,11 @@ verify_ssl = true
 [packages]
 flask = "*"
 pickle-mixin = "*"
-
-gunicorn = "*"
-=======
 sklearn = "*"
-
+requests = "*"
+tensorflow = "*"
+# tensorflow-keras-models = "*"
+pandas = "*"
 
 [requires]
 python_version = "3.7"
