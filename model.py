@@ -95,11 +95,27 @@ infile = open("getIdDict.pkl", "rb")
 result_id_dict = pickle.load(infile)
 infile.close()
 
+def mood_mult(df, mood):
+    new_mood = pd.DataFrame()
+    for i in range(len(df)):
+        new_mood = pd.concat([new_mood, mood])
+    df = pd.concat([df, new_mood])
+
+    return df
+
+def mood_check(mood_dict):
+    for key in mood_dict:
+        if mood_dict[key] != 0:
+            return True
+    return False
+
 
 encoded_full = load_model('encoded_complete', compile=False)
 
 suggested_songs = getPred(
     first_five, neighbor, result_id_dict, clean_data_split, encoded_full)
+
+
 
 
 if __name__ == "__main__":

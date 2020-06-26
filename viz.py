@@ -12,11 +12,11 @@ similarites to suggested tracks.
 '''
 
 test = {
-    "recommended_songs": [
+    "favorite_songs": [
         {
             "id": "7GI1Weh21oGJYeSbrtOyR1",
             "name": "Windshield",
-            "acousticness": .00587,
+            "acousticness": 0.00587,
             "artist": "Greensky Bluegrass",
             "album": "If Sorrows Swim",
             "image_url": "https://i.scdn.co/image/ab67616d0000b273b26aa443332e4ccd14d42c0b",
@@ -38,7 +38,7 @@ test = {
             "id": "6DavaRzYekSRYl0VMHnlwo",
             "name": "Helpless (feat. Neil Young) - Concert Version",
             "artist": "The Band",
-            "acousticness": .00587,
+            "acousticness": 0.00587,
             "album": "The Last Waltz (Deluxe Version)",
             "image_url": "https://i.scdn.co/image/ab67616d0000b273415e5ff0f5a631e22af127a6",
             "popularity": 43,
@@ -62,7 +62,7 @@ test = {
             "album": "Soul Journey",
             "image_url": "https://i.scdn.co/image/ab67616d0000b2736e13bd95bdb89f6bc030635b",
             "popularity": 38,
-            "acousticness": .00587,
+            "acousticness": 0.00587,
             "duration_ms": 296267,
             "key": 0,
             "mode": 1,
@@ -83,7 +83,7 @@ test = {
             "album": "Cornell 5/8/77 (Live)",
             "image_url": "https://i.scdn.co/image/ab67616d0000b27375fcab3be9f5833d23e211f0",
             "popularity": 40,
-            "acousticness": .00587,
+            "acousticness": 0.00587,
             "duration_ms": 857213,
             "key": 7,
             "mode": 1,
@@ -104,7 +104,7 @@ test = {
             "album": "Til the Medicine Takes",
             "image_url": "https://i.scdn.co/image/ab67616d0000b2730b7bf250f2d9a04ed521b891",
             "popularity": 36,
-            "acousticness": .00587,
+            "acousticness": 0.00587,
             "duration_ms": 375000,
             "key": 7,
             "mode": 1,
@@ -118,7 +118,23 @@ test = {
             "valence": 0.506,
             "tempo": 103.317
         }
-    ]
+    ],
+    "mood": {
+        "popularity": 36,
+        "acousticness": 0.00587,
+        "duration_ms": 375000,
+        "key": 7,
+        "mode": 1,
+        "time_signature": 4,
+        "danceability": 0.482,
+        "energy": 0.908,
+        "instrumentalness": 0.153,
+        "liveness": 0.457,
+        "loudness": -4.956,
+        "speechiness": 0.0422,
+        "valence": 0.506,
+        "tempo": 103.317
+    }
 }
 
 # important features
@@ -134,7 +150,7 @@ def round_up(n, decimals=0):
 # function that returns averages of important features
 def aggregate(df, key):
     key1 = key
-    features = req
+    features = test
     keys = [feature[key1] for feature in features]
     average = abs(sum(keys)) / len(keys)
     return round_up(average, 4)
