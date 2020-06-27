@@ -18,12 +18,12 @@ def main():
     mood_req = request.json.get("mood")
     print(req)
     print(mood_req)
-    if mood_check(mood_req[0]):
-      if mood_req != None:
-          mood_req_format = json.dumps(mood_req)
-          mood_df = pd.read_json(mood_req_format)
-          mood_df = mood_df.fillna(0)
-          df = mood_mult(df, mood_df)
+
+    if mood_req != None:
+        mood_req_format = json.dumps(mood_req)
+        mood_df = pd.read_json(mood_req_format)
+        mood_df = mood_df.fillna(0)
+        df = mood_mult(df, mood_df)
 #    data = pd.read_json(req, orient='split')
     print(df)
     suggested_songs = getPred(df, neighbor, result_id_dict,
